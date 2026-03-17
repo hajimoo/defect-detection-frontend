@@ -1,41 +1,58 @@
 # Defect Detection Frontend
 
-本プロジェクトは、CNNベースの欠陥検出システムのためのReactフロントエンドです。
+製造業における欠陥検出システムのための React フロントエンドです。  
+ユーザーが検査画像をアップロードし、バックエンドの推論 API から欠陥検出結果を取得・表示できるようにすることを目的としています。
 
-## 概要
-ユーザーが検査画像をアップロードすると、バックエンドのモデルから欠陥検出結果を取得し表示します。
-
-製造業の検査システムにおいては、欠陥の見逃し（False Negative）が重大なリスクとなるため、本プロジェクトではAccuracyではなくRecallを重視した設計思想に基づいています。
+本プロジェクトは、ノートブック環境で開発された CNN モデルを実際のアプリケーションとして利用するための UI 層として構築しました。
 
 ---
 
-## 機能
+## Project Purpose
+
+バックエンドでは CNN モデルを FastAPI ベースの推論 API として提供していますが、実際のアプリケーションとして利用するためには、ユーザーが直感的に操作できる画面が必要です。
+
+そのため本フロントエンドでは、以下を実現することを目的としました。
+
+- 検査画像のアップロード
+- 推論 API との連携
+- 予測結果の可視化
+- シンプルで分かりやすい UI の提供
+
+---
+
+## Features
+
 - 画像アップロード
-- FastAPIバックエンドとの連携（/predict）
+- FastAPI バックエンドとの連携（`POST /predict`）
 - 予測結果（ラベル・信頼度）の表示
-- シンプルなUIによる操作性
+- シンプルな UI による操作性
 
 ---
 
-## 技術スタック
+## Tech Stack
+
+### Frontend
 - React（Vite）
 - Tailwind CSS
 - JavaScript（ES6+）
 
 ---
 
-## 画面フロー
+## Screen Flow
+
 1. 画像を選択  
-2. Uploadボタンをクリック  
-3. バックエンドAPIにリクエスト送信  
+2. Upload ボタンをクリック  
+3. バックエンド API にリクエスト送信  
 4. 予測結果を画面に表示  
 
 ---
 
-## API連携
-- Endpoint: `POST /predict`
+## API Integration
 
-レスポンス例:
+### Endpoint
+- `POST /predict`
+
+### Response Example
 
 ```json
 {
@@ -47,32 +64,54 @@
 
 ---
 
-## 実行方法
+## Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/hajimoo/defect-detection-frontend.git
+cd defect-detection-frontend
+```
+
+### 2. Install dependencies
 
 ```bash
 npm install
+```
+
+### 3. Run development server
+
+```bash
 npm run dev
 ```
 
 ---
 
-## 注意事項
+## Notes
 
 - バックエンド（FastAPI）が起動している必要があります
-- デフォルトでは [http://127.0.0.1:8000](http://127.0.0.1:8000) に接続します
+- デフォルトでは `http://127.0.0.1:8000` に接続します
 
 ---
 
-## 今後の改善点
+## Current Limitations
+
+- 画像プレビュー機能は未実装
+- エラーハンドリングの改善余地あり
+- レスポンシブ対応は限定的
+
+---
+
+## Future Work
 
 - 画像プレビュー機能の追加
-- エラーハンドリングの改善
-- UI/UXの向上
+- エラーメッセージ表示の改善
+- UI/UX の向上
 - レスポンシブ対応
+- 推論履歴表示機能の追加
 
 ---
 
-## 関連リポジトリ
+## Related Repository
 
-- Backend: https://github.com/hajimoo/defect-detection-api
-
+- Backend: [https://github.com/hajimoo/defect-detection-api](https://github.com/hajimoo/defect-detection-api)
