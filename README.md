@@ -75,4 +75,4 @@ npm run dev
 ## 関連リポジトリ
 
 - Backend: https://github.com/hajimoo/defect-detection-api
->>>>>>> 566f2d7cd7102e81b5a5405d67b62c308e189f8d
+
