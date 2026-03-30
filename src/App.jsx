@@ -11,7 +11,7 @@ function App() {
 
   const handleUpload = async () => {
     if (!file) {
-      alert("파일을 선택하세요.");
+      alert("ファイルを選択してください。");
       return;
     }
 
@@ -29,7 +29,7 @@ const response = await fetch("http://localhost:8000/predict", {
       setResult(data);
     } catch (error) {
       console.error(error);
-      alert("에러가 발생했습니다.");
+      alert("エラーが発生しました。");
     } finally {
       setLoading(false);
     }
